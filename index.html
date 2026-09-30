@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Primary SEO -->
+    <title>Image Toolkit · Compress · Resize · Convert · Crop · Favicon Generator</title>
+    <meta name="title" content="Image Toolkit · Compress · Resize · Convert · Crop · Favicon Generator">
+    <meta name="description" content="Free online image toolkit to compress, resize, convert (PNG, JPEG, WEBP, AVIF), crop, and generate multi-size .ico favicons. 100% client-side, no uploads, works in your browser.">
+    <meta name="keywords" content="image compressor, image resizer, image converter, image cropper, favicon generator, ico generator, png to jpg, jpg to webp, avif converter, free image tools, online image editor">
+    <meta name="author" content="ethereal studios">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://yourdomain.com/">
+
+    <!-- Favicon / Icons -->
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/">
+    <meta property="og:title" content="Image Toolkit · Compress · Resize · Convert · Crop · Favicon">
+    <meta property="og:description" content="Free online image toolkit to compress, resize, convert, crop, and generate multi-size .ico favicons. 100% client-side, no uploads needed.">
+    <meta property="og:image" content="https://yourdomain.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Image Toolkit">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Image Toolkit",
+        "url": "https://yourdomain.com/",
+        "description": "Free online image toolkit to compress, resize, convert, crop, and generate multi-size .ico favicons. All processing happens locally in your browser.",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "featureList": [
+            "Image Compression",
+            "Image Resizing",
+            "Format Conversion (PNG, JPEG, WEBP, AVIF)",
+            "Image Cropping",
+            "Favicon / ICO Generation"
+        ],
+        "author": {
+            "@type": "Organization",
+            "name": "ethereal"
+        }
+    }
+    </script>
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+    <div class="app-wrapper">
+        <div class="glass-panel">
+            <div class="header">
+                <div class="header-badges">
+                    <img src="images/download (1).png" alt="ethereal logo" class="header-logo" width="80" height="80">
+                    <h1> Image Toolkit</h1>
+                </div>
+
+                <div class="header-badges">
+                    <span class="badge">🔒 100% local</span>
+                    <span class="badge">⚡ fast</span>
+                    <span class="badge">🆓 free</span>
+                </div>
+            </div>
+
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📂</div>
+                <p>Drop an image here, or click to browse</p>
+                <small>PNG · JPEG · WEBP · AVIF · GIF · BMP · max 15MB</small>
+                <div class="file-badge hidden" id="fileBadge">
+                    <span id="fileNameDisplay">image.png</span>
+                    <span id="fileSizeDisplay">0 KB</span>
+                    <span id="fileDimsDisplay" style="color:#6d8db3;">—</span>
+                </div>
+                <input type="file" id="globalFileInput" accept="image/*">
+            </div>
+
+            <div class="error-msg hidden" id="globalError"></div>
+
+            <div class="tabs" id="tabBar">
+                <button class="tab-btn active" data-tool="compress"><span class="tab-icon">🗜️</span> Compress</button>
+                <button class="tab-btn" data-tool="resize"><span class="tab-icon">📐</span> Resize</button>
+                <button class="tab-btn" data-tool="convert"><span class="tab-icon">🔄</span> Convert</button>
+                <button class="tab-btn" data-tool="crop"><span class="tab-icon">✂️</span> Crop</button>
+                <button class="tab-btn" data-tool="favicon"><span class="tab-icon">⭐</span> Favicon</button>
+            </div>
+
+            <!-- COMPRESS -->
+            <div class="tool-panel active" id="panel-compress">
+                <div class="control-row">
+                    <div class="control-box">
+                        <label>Output format</label>
+                        <div class="format-selector" id="compressFormat">
+                            <button class="format-btn active" data-format="image/jpeg">JPEG</button>
+                            <button class="format-btn" data-format="image/png">PNG</button>
+                            <button class="format-btn" data-format="image/webp">WEBP</button>
+                            <button class="format-btn" data-format="image/avif">AVIF</button>
+                        </div>
+                    </div>
+                    <div class="control-box">
+                        <label>Quality / compression</label>
+                        <div class="slider-container">
+                            <input type="range" id="compressQuality" min="0.1" max="1.0" step="0.01" value="0.75">
+                            <span class="value-bubble" id="compressQualityVal">75%</span>
+                        </div>
+                        <div class="note-text">Lower quality = smaller file size.</div>
+                    </div>
+                </div>
+                <div class="action-bar">
+                    <button class="btn btn-primary" id="compressBtn" disabled>🗜️ Compress image</button>
+                    <button class="btn btn-success" id="compressDownloadBtn" disabled>⬇️ Download result</button>
+                </div>
+                <div class="preview-section">
+                    <div class="preview-header">
+                        <span>📸 Result preview</span>
+                        <span class="preview-badge" id="compressBadge">JPEG</span>
+                    </div>
+                    <div class="preview-grid">
+                        <div class="preview-card">
+                            <img id="compressOriginalImg" class="hidden" src="#" alt="original">
+                            <div id="compressOriginalPlaceholder" class="placeholder">📷 original</div>
+                            <p id="compressOriginalName">—</p>
+                        </div>
+                        <div class="preview-card">
+                            <img id="compressResultImg" class="hidden" src="#" alt="compressed">
+                            <div id="compressResultPlaceholder" class="placeholder">✨ compressed</div>
+                            <p id="compressResultName">—</p>
+                        </div>
+                    </div>
+                    <div class="size-compare">
+                        <span>Original: <strong id="compressOriginalSize">—</strong></span>
+                        <span>New: <strong id="compressNewSize">—</strong></span>
+                        <span>Saved: <strong id="compressSaved">—</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RESIZE — NO FORMAT SELECTOR, uses original format -->
+            <div class="tool-panel" id="panel-resize">
+                <div class="info-box">
+                    <span>ℹ️</span>
+                    <span>Keeps the original image format automatically.</span>
+                    <span class="format-tag" id="resizeFormatTag">—</span>
+                </div>
+                <div class="control-row">
+                    <div class="control-box">
+                        <label>Width (px)</label>
+                        <input type="number" class="number-input" id="resizeWidth" placeholder="auto" min="1"
+                            max="10000">
+                    </div>
+                    <div class="control-box">
+                        <label>Height (px)</label>
+                        <input type="number" class="number-input" id="resizeHeight" placeholder="auto" min="1"
+                            max="10000">
+                    </div>
+                    <div class="control-box">
+                        <label>Options</label>
+                        <div class="checkbox-row">
+                            <input type="checkbox" id="keepAspect" checked>
+                            <label for="keepAspect"
+                                style="text-transform:none; margin:0; font-size:0.85rem; color:#b0c8e5;">Maintain aspect
+                                ratio</label>
+                        </div>
+                        <div class="note-text">Leave one field empty to auto-calculate.</div>
+                    </div>
+                </div>
+                <div class="action-bar">
+                    <button class="btn btn-primary" id="resizeBtn" disabled>📐 Resize image</button>
+                    <button class="btn btn-success" id="resizeDownloadBtn" disabled>⬇️ Download result</button>
+                </div>
+                <div class="preview-section">
+                    <div class="preview-header">
+                        <span>📸 Result preview</span>
+                        <span class="preview-badge" id="resizeBadge">—</span>
+                    </div>
+                    <div class="preview-grid">
+                        <div class="preview-card">
+                            <img id="resizeOriginalImg" class="hidden" src="#" alt="original">
+                            <div id="resizeOriginalPlaceholder" class="placeholder">📷 original</div>
+                            <p id="resizeOriginalName">—</p>
+                        </div>
+                        <div class="preview-card">
+                            <img id="resizeResultImg" class="hidden" src="#" alt="resized">
+                            <div id="resizeResultPlaceholder" class="placeholder">✨ resized</div>
+                            <p id="resizeResultName">—</p>
+                        </div>
+                    </div>
+                    <div class="size-compare">
+                        <span>Original: <strong id="resizeOriginalSize">—</strong></span>
+                        <span>New: <strong id="resizeNewSize">—</strong></span>
+                        <span>Dimensions: <strong id="resizeDims">—</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONVERT -->
+            <div class="tool-panel" id="panel-convert">
+                <div class="control-row">
+                    <div class="control-box">
+                        <label>Target format</label>
+                        <div class="format-selector" id="convertFormat">
+                            <button class="format-btn active" data-format="image/jpeg">JPEG</button>
+                            <button class="format-btn" data-format="image/png">PNG</button>
+                            <button class="format-btn" data-format="image/webp">WEBP</button>
+                            <button class="format-btn" data-format="image/avif">AVIF</button>
+                        </div>
+                    </div>
+                    <div class="control-box">
+                        <label>Quality (for lossy formats)</label>
+                        <div class="slider-container">
+                            <input type="range" id="convertQuality" min="0.1" max="1.0" step="0.01" value="0.85">
+                            <span class="value-bubble" id="convertQualityVal">85%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="action-bar">
+                    <button class="btn btn-primary" id="convertBtn" disabled>🔄 Convert format</button>
+                    <button class="btn btn-success" id="convertDownloadBtn" disabled>⬇️ Download result</button>
+                </div>
+                <div class="preview-section">
+                    <div class="preview-header">
+                        <span>📸 Result preview</span>
+                        <span class="preview-badge" id="convertBadge">JPEG</span>
+                    </div>
+                    <div class="preview-grid">
+                        <div class="preview-card">
+                            <img id="convertOriginalImg" class="hidden" src="#" alt="original">
+                            <div id="convertOriginalPlaceholder" class="placeholder">📷 original</div>
+                            <p id="convertOriginalName">—</p>
+                        </div>
+                        <div class="preview-card">
+                            <img id="convertResultImg" class="hidden" src="#" alt="converted">
+                            <div id="convertResultPlaceholder" class="placeholder">✨ converted</div>
+                            <p id="convertResultName">—</p>
+                        </div>
+                    </div>
+                    <div class="size-compare">
+                        <span>Original: <strong id="convertOriginalSize">—</strong></span>
+                        <span>New: <strong id="convertNewSize">—</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CROP -->
+            <div class="tool-panel" id="panel-crop">
+                <div class="control-row">
+                    <div class="control-box">
+                        <label>Output format</label>
+                        <div class="format-selector" id="cropFormat">
+                            <button class="format-btn active" data-format="image/jpeg">JPEG</button>
+                            <button class="format-btn" data-format="image/png">PNG</button>
+                            <button class="format-btn" data-format="image/webp">WEBP</button>
+                        </div>
+                    </div>
+                    <div class="control-box">
+                        <label>Crop area (px)</label>
+                        <div class="two-col" style="gap:8px;">
+                            <div><input type="number" class="number-input" id="cropX" placeholder="X" value="0" min="0"
+                                    style="padding:7px 10px; font-size:0.8rem;"></div>
+                            <div><input type="number" class="number-input" id="cropY" placeholder="Y" value="0" min="0"
+                                    style="padding:7px 10px; font-size:0.8rem;"></div>
+                            <div><input type="number" class="number-input" id="cropW" placeholder="Width" min="1"
+                                    style="padding:7px 10px; font-size:0.8rem;"></div>
+                            <div><input type="number" class="number-input" id="cropH" placeholder="Height" min="1"
+                                    style="padding:7px 10px; font-size:0.8rem;"></div>
+                        </div>
+                        <div class="note-text">Drag the selection on the image or edit values.</div>
+                    </div>
+                </div>
+                <div class="action-bar">
+                    <button class="btn btn-primary" id="cropBtn" disabled>✂️ Crop image</button>
+                    <button class="btn btn-success" id="cropDownloadBtn" disabled>⬇️ Download result</button>
+                </div>
+                <div class="preview-section">
+                    <div class="preview-header">
+                        <span>✂️ Crop selection</span>
+                        <span class="preview-badge">interactive</span>
+                    </div>
+                    <div style="text-align:center; margin-bottom:12px;">
+                        <div class="crop-container" id="cropContainer">
+                            <canvas id="cropCanvas"></canvas>
+                            <div class="crop-selection" id="cropSelection">
+                                <div class="crop-handle nw" data-handle="nw"></div>
+                                <div class="crop-handle ne" data-handle="ne"></div>
+                                <div class="crop-handle sw" data-handle="sw"></div>
+                                <div class="crop-handle se" data-handle="se"></div>
+                                <div class="crop-handle n" data-handle="n"></div>
+                                <div class="crop-handle s" data-handle="s"></div>
+                                <div class="crop-handle w" data-handle="w"></div>
+                                <div class="crop-handle e" data-handle="e"></div>
+                            </div>
+                        </div>
+                        <div class="crop-overlay-hint">Drag the box or handles to adjust crop area</div>
+                    </div>
+                    <div class="preview-grid">
+                        <div class="preview-card">
+                            <img id="cropResultImg" class="hidden" src="#" alt="cropped">
+                            <div id="cropResultPlaceholder" class="placeholder">✨ cropped result</div>
+                            <p id="cropResultName">—</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAVICON -->
+            <div class="tool-panel" id="panel-favicon">
+                <div class="ratio-info">
+                    <span>📐</span>
+                    <span>Your image will be resized to each selected size while <strong>preserving its original aspect
+                            ratio</strong>. The canvas will be padded to a square with transparency, or you can choose
+                        to stretch.</span>
+                </div>
+
+                <div class="favicon-options-grid">
+                    <div class="favicon-option-panel">
+                        <h3>📏 Sizes (multi-resolution ICO)</h3>
+                        <div class="size-option-row">
+                            <input type="checkbox" id="faviconSizes16" checked>
+                            <label for="faviconSizes16">16 × 16 px</label>
+                            <span class="size-note">browser tab</span>
+                        </div>
+                        <div class="size-option-row">
+                            <input type="checkbox" id="faviconSizes32" checked>
+                            <label for="faviconSizes32">32 × 32 px</label>
+                            <span class="size-note">standard favicon</span>
+                        </div>
+                        <div class="size-option-row">
+                            <input type="checkbox" id="faviconSizes48">
+                            <label for="faviconSizes48">48 × 48 px</label>
+                            <span class="size-note">Windows site icon</span>
+                        </div>
+                        <div class="size-option-row">
+                            <input type="checkbox" id="faviconSizes64">
+                            <label for="faviconSizes64">64 × 64 px</label>
+                            <span class="size-note">high-DPI</span>
+                        </div>
+                        <div class="size-option-row">
+                            <input type="checkbox" id="faviconSizes128">
+                            <label for="faviconSizes128">128 × 128 px</label>
+                            <span class="size-note">large preview</span>
+                        </div>
+                        <div class="size-option-row">
+                            <input type="checkbox" id="faviconSizes256">
+                            <label for="faviconSizes256">256 × 256 px</label>
+                            <span class="size-note">32-bit only</span>
+                        </div>
+                    </div>
+
+                    <div class="favicon-option-panel">
+                        <h3>🎨 Bit depth</h3>
+                        <div class="bit-depth-row">
+                            <button class="bit-btn" data-bits="8">8-bit</button>
+                            <button class="bit-btn active" data-bits="32">32-bit</button>
+                        </div>
+                        <div class="bit-note">
+                            <strong>8-bit:</strong> 256-color palette, smallest file size.<br>
+                            <strong>32-bit:</strong> 16.7M colors + full alpha transparency.
+                        </div>
+                        <div class="checkbox-row" style="margin-top:14px;">
+                            <input type="checkbox" id="faviconPadSquare" checked>
+                            <label for="faviconPadSquare"
+                                style="text-transform:none; font-size:0.82rem; color:#b0c8e5;">Pad to square with
+                                transparency</label>
+                        </div>
+                        <div class="note-text">If unchecked, the image will be stretched to fit each square size (may
+                            distort).</div>
+                    </div>
+                </div>
+
+                <div class="action-bar">
+                    <button class="btn btn-primary" id="faviconBtn" disabled>⭐ Generate favicon ICO</button>
+                    <button class="btn btn-success" id="faviconDownloadBtn" disabled>⬇️ Download .ico</button>
+                </div>
+
+                <div class="preview-section">
+                    <div class="preview-header">
+                        <span>⭐ Favicon preview (all selected sizes)</span>
+                        <span class="preview-badge" id="faviconBitBadge">32-bit</span>
+                    </div>
+                    <div id="faviconPreviewGrid" class="favicon-preview-grid">
+                        <div class="favicon-preview-item">
+                            <div class="favicon-box"><span style="color:#4a6f9a; font-size:0.7rem;">—</span></div>
+                            <span>no image</span>
+                        </div>
+                    </div>
+                    <div class="size-compare" style="margin-top:16px;">
+                        <span>Original: <strong id="faviconOriginalSize">—</strong></span>
+                        <span>ICO file: <strong id="faviconNewSize">—</strong></span>
+                        <span>Sizes: <strong id="faviconSizeCount">—</strong></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="toolkit-footer">
+            <div class="footer-brand">
+                <img src="images/logo.png" alt="ethereal logo">
+                <!-- <span class="ethereal-text">ethereal</span> -->
+            </div>
+            <div class="footer-copy">copyright © 2026 · crafted with care</div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
