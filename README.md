@@ -89,25 +89,29 @@ Every operation is performed **client-side** using the HTML5 Canvas API and the 
 
 ## 🚀 Demo
 
-> **Live Demo:** [https://yourdomain.com](https://yourdomain.com) *(replace with your deployed URL)*
+> **Live Demo:** [https://builtbyethereal.github.io/image-compressor/](https://builtbyethereal.github.io/image-compressor/) *(replace with your deployed URL)*
 
 ---
 
 ## 📸 Screenshots
 
-> Add your screenshots here. Recommended: 1280×800 PNG files in a `/screenshots` folder.
+
 
 | Compress | Resize |
 |---|---|
-| ![Compress](screenshots/compress.png) | ![Resize](screenshots/resize.png) |
+| ![Compress](<img width="1366" height="1138" alt="FireShot Capture 040 - Image Toolkit · Compress · Resize · Convert · Crop · Favicon Genera_ -  builtbyethereal github io" src="https://github.com/user-attachments/assets/9ad9942d-c7e4-47c4-b17f-05ccb4371474" />) | ![Resize](<img width="1366" height="1193" alt="FireShot Capture 041 - Image Toolkit · Compress · Resize · Convert · Crop · Favicon Genera_ -  builtbyethereal github io" src="https://github.com/user-attachments/assets/11813445-3ac6-4b0c-82f0-3ba7843239af" />
+) |
 
 | Convert | Crop |
 |---|---|
-| ![Convert](screenshots/convert.png) | ![Crop](screenshots/crop.png) |
+| ![Convert](<img width="1366" height="1117" alt="FireShot Capture 042 - Image Toolkit · Compress · Resize · Convert · Crop · Favicon Genera_ -  builtbyethereal github io" src="https://github.com/user-attachments/assets/c6da24c0-eeeb-4340-938e-9a5689629f48" />
+) | ![Crop](<img width="1366" height="1363" alt="FireShot Capture 043 - Image Toolkit · Compress · Resize · Convert · Crop · Favicon Genera_ -  builtbyethereal github io" src="https://github.com/user-attachments/assets/f94cca79-e10d-43bd-a004-f891924051a8" />
+) |
 
 | Favicon Generator |
 |---|
-| ![Favicon](screenshots/favicon.png) |
+| ![Favicon](<img width="1366" height="1246" alt="FireShot Capture 044 - Image Toolkit · Compress · Resize · Convert · Crop · Favicon Genera_ -  builtbyethereal github io" src="https://github.com/user-attachments/assets/4a8b8f84-d5c0-4275-98b5-722f0fab6548" />
+) |
 
 ---
 
@@ -117,9 +121,3 @@ Every operation is performed **client-side** using the HTML5 Canvas API and the 
 - A modern web browser (Chrome, Firefox, Edge, Safari)
 - No build tools required — it's plain HTML/CSS/JS
 
-### Installation
-
-**1. Clone the repository**
-```bash
-git clone https://github.com/yourusername/image-toolkit.git
-cd image-toolkit
