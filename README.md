@@ -42,10 +42,6 @@ Compress · Resize · Convert · Crop · Generate Favicons
 
 Every operation is performed **client-side** using the HTML5 Canvas API and the File API, so your images never leave your device. Perfect for designers, developers, and anyone who needs quick image processing without installing software.
 
-> 💡 **Why this project?** Most online image tools upload your files to their servers. This one doesn't. It's fast, private, and works offline after the first load.
-
----
-
 ## ✨ Features
 
 ### 🗜️ Image Compressor
