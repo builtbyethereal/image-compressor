@@ -89,8 +89,7 @@ Every operation is performed **client-side** using the HTML5 Canvas API and the 
 
 ## 🚀 Demo
 
-> **Live Demo:** [https://builtbyethereal.github.io/image-compressor/](https://builtbyethereal.github.io/image-compressor/) *(replace with your deployed URL)*
-
+> **Live Demo:** [https://builtbyethereal.github.io/image-compressor/](https://builtbyethereal.github.io/image-compressor/)
 ---
 
 ## 📸 Screenshots
