@@ -99,19 +99,20 @@ Every operation is performed **client-side** using the HTML5 Canvas API and the 
 
 | Compress | Resize |
 |---|---|
-| <img width="1366" height="1138" alt="FireShot Capture 040 - Image Toolkit · Compress · Resize · Convert · Crop · Favicon Genera_ -  builtbyethereal github io" src="https://github.com/user-attachments/assets/9ad9942d-c7e4-47c4-b17f-05ccb4371474" /> |<img width="1366" height="1193" alt="FireShot Capture 041 - Image Toolkit · Compress · Resize · Convert · Crop · Favicon Genera_ -  builtbyethereal github io" src="https://github.com/user-attachments/assets/11813445-3ac6-4b0c-82f0-3ba7843239af" />
- |
+| <img width="1366" height="1138" alt="FireShot Capture 040 - Image Toolkit · Compress · Resize · Convert · Crop · Favicon Genera_ -  builtbyethereal github io" src="https://github.com/user-attachments/assets/9ad9942d-c7e4-47c4-b17f-05ccb4371474" /> 
+|<img width="1366" height="1193" alt="FireShot Capture 041 - Image Toolkit · Compress · Resize · Convert · Crop · Favicon Genera_ -  builtbyethereal github io" src="https://github.com/user-attachments/assets/11813445-3ac6-4b0c-82f0-3ba7843239af" />
+|
 
 | Convert | Crop |
 |---|---|
 | <img width="1366" height="1117" alt="FireShot Capture 042 - Image Toolkit · Compress · Resize · Convert · Crop · Favicon Genera_ -  builtbyethereal github io" src="https://github.com/user-attachments/assets/c6da24c0-eeeb-4340-938e-9a5689629f48" />
- | <img width="1366" height="1363" alt="FireShot Capture 043 - Image Toolkit · Compress · Resize · Convert · Crop · Favicon Genera_ -  builtbyethereal github io" src="https://github.com/user-attachments/assets/f94cca79-e10d-43bd-a004-f891924051a8" />
- |
+| <img width="1366" height="1363" alt="FireShot Capture 043 - Image Toolkit · Compress · Resize · Convert · Crop · Favicon Genera_ -  builtbyethereal github io" src="https://github.com/user-attachments/assets/f94cca79-e10d-43bd-a004-f891924051a8" />
+|
 
 | Favicon Generator |
 |---|
 | <img width="1366" height="1246" alt="FireShot Capture 044 - Image Toolkit · Compress · Resize · Convert · Crop · Favicon Genera_ -  builtbyethereal github io" src="https://github.com/user-attachments/assets/4a8b8f84-d5c0-4275-98b5-722f0fab6548" />
- |
+|
 
 ---
 
